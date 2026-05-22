@@ -1,12 +1,13 @@
-import Hero from "../components/Hero"
-
+import Hero from "../components/Hero";
+import FeaturesCard from "./FeaturesCard";
 
 const Home = () => {
   return (
     <>
-        <Hero />
+      <Hero />
+      <FeaturesCard />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

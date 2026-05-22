@@ -1,14 +1,16 @@
+import { assets, cities } from '../assets/assets';
+
 const Hero = () => {
   return (
     <div
       className="relative flex flex-col items-center justify-center px-6 md:px-16 lg:px-24 xl:px-32 
-      bg-[url('/src/assets/heroImage.png')] bg-cover bg-center bg-no-repeat h-[85vh]"
+      bg-[url('/src/assets/heroImage.png')] bg-cover bg-center bg-no-repeat h-screen"
     >
       <div className="absolute inset-0 bg-black/45" />
 
       <div className="relative z-10 text-center max-w-4xl ">
         <div className="py-20">
-            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mt-4 drop-shadow-2xl">
+            <h1 className="font-playfair text-white text-4xl md:text-6xl lg:text-7xl font-bold mt-4 drop-shadow-2xl">
           Stay Beyond Expectations
         </h1>
 
@@ -17,24 +19,26 @@ const Hero = () => {
           Let every journey
           become an unforgettable experience
         </p>
-        </div>
-        <form className='bg-white text-gray-500 rounded-lg px-6 py-4  flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
+         <form className='bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
 
-            <div>
-                <div className='flex items-center gap-2'>
-                    <svg className="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                    </svg>
+            <div >
+                <div className='flex  items-center gap-2'>
+                    <img src={assets.calenderIcon} alt="destination" className="h-4" />
                     <label htmlFor="destinationInput">Destination</label>
                 </div>
                 <input list='destinations' id="destinationInput" type="text" className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none" placeholder="Type here" required />
+                <datalist id='destinations'>
+                    {cities.map((city, i) => (
+                        <option key={i} value={city} />
+                    ))}
+                </datalist>
             </div>
+
+            
 
             <div>
                 <div className='flex items-center gap-2'>
-                    <svg className="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                    </svg>
+                    <img src={assets.calenderIcon} alt="check-in" className="h-4" />
                     <label htmlFor="checkIn">Check in</label>
                 </div>
                 <input id="checkIn" type="date" className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none" />
@@ -42,9 +46,7 @@ const Hero = () => {
 
             <div>
                 <div className='flex items-center gap-2'>
-                    <svg className="w-4 h-4 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                    </svg>
+                    <img src={assets.calenderIcon} alt="check-out" className="h-4" />
                     <label htmlFor="checkOut">Check out</label>
                 </div>
                 <input id="checkOut" type="date" className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none" />
@@ -56,15 +58,16 @@ const Hero = () => {
             </div>
 
             <button className='flex items-center justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto cursor-pointer max-md:w-full max-md:py-1' >
-                <svg className="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                    <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                </svg>
+                <img src={assets.searchIcon} alt="search" className="h-7" />
                 <span>Search</span>
             </button>
         </form>
-      </div>
+        </div>
+       
 
         
+      </div>
+
     </div>
   );
 };
